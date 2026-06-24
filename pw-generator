@@ -1,0 +1,27 @@
+# HERE'S A PW GENERATOR YOU CAN USE TO DISPLAY A TABLE IN YOUR TERMINAL
+
+# Defining character pools
+import random
+import string
+
+lowercase = string.ascii_lowercase     # a-z
+uppercase = string.ascii_uppercase     # A-Z
+digits = string.digits                 # 0-9
+specials = string.punctuation          # !@#$ etc.
+
+full_pool = list(lowercase + uppercase + digits + specials)
+
+
+# Build 6x6 mapping table
+keys = list("abcdefghiklmnopqrstuvwxyz0123456789") + ["*"]
+mapping = {}
+for key in keys:
+    mapping[key] = random.sample(full_pool, 3)     # 3 unique characters assigned to a key
+
+
+# Displaying table
+for i, key in enumerate(keys):
+    chars = " ".join(mapping[key])
+    print(f"| {key}: {chars} |", end="")
+    if (i + 1) % 6 == 0:
+        print()                                    # new row created after 6 columns
