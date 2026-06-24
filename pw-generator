@@ -13,7 +13,7 @@ full_pool = list(lowercase + uppercase + digits + specials)
 
 
 # Build 6x6 mapping table
-keys = list("abcdefghiklmnopqrstuvwxyz0123456789") + ["*"]
+keys = list("abcdefghiklmnopqrstuvwxyz0123456789") + ["*"]         # the ["*"] adds a 36th square to make the table an even 6x6
 mapping = {}
 for key in keys:
     mapping[key] = random.sample(full_pool, 3)     # 3 unique characters assigned to a key
